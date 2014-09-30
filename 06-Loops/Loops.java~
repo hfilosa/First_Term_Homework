@@ -1,0 +1,13 @@
+public class Loops {
+    public String frontTimes(String str, int n) {
+	int x = 0;
+	String ans = "";
+	if (str.length() > 3) {
+	    String front = str.substring(0,3);}
+	else {
+	    String front = str.substring(0,);}
+	while (x<n) {
+	    ans+=front;}
+	return ans;
+    }
+}
