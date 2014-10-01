@@ -1,0 +1,10 @@
+public class Driver {
+    public static void main(String[] args){
+        Loops run = new Loops();
+	/*System.out.println(run.box(4,3));	
+	System.out.println(run.box(5,10));
+	System.out.println(run.box(6,6));
+	System.out.print(run.tri1(4));*/
+	System.out.println(run.tri2(4));
+    }
+}
