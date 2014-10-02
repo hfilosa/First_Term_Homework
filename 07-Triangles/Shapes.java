@@ -55,8 +55,8 @@ public class Shapes {
 	while(row<h){
 	    int base=((h*2)-1)-2*(row);
 	    int space=row;
-	    while(space>0){
-		ans+=".";
+	    while(space>=0){
+		ans+=" ";
 		space-=1;
 	    }
 	    while (base>0){
@@ -74,8 +74,8 @@ public class Shapes {
 	while(row<h){
 	    int star=2*(row)+1;
 	    int space=h-row-1;
-	    while(space>0){
-		ans+=".";
+	    while(space>=0){
+		ans+=" ";
 		space-=1;
 	    }
 	    while (star>0){
@@ -84,6 +84,29 @@ public class Shapes {
 	    }
 	    ans+="\n";
 	    row+=1;
+	}
+	return ans;
+    }
+    public String diamond(int h){
+	String ans="";
+	ans+=tri3(h/2);
+	for (int x=0;x<h;x+=1){
+	    ans+="*";
+	}
+	ans+="\n";
+	ans+=tri3u(h/2);
+	return ans;
+    }
+    public String tri4(int h){
+	String ans="";
+	for (int row=0;row<h;row++){
+	    for (int space=row;space>0;space-=1){
+		ans+=" ";
+	    }
+	    for (int star=h-row;star>0;star-=1){
+		ans+="*";
+	    }
+	    ans+="\n";
 	}
 	return ans;
     }
