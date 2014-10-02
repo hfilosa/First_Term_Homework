@@ -48,6 +48,44 @@ public class Shapes {
 	}
 	return ans;
     }
-
+    //tri3u prints an upside-down iwsosecles triangle
+    public String tri3u(int h){
+	String ans="";
+	int row=0;
+	while(row<h){
+	    int base=((h*2)-1)-2*(row);
+	    int space=row;
+	    while(space>0){
+		ans+=".";
+		space-=1;
+	    }
+	    while (base>0){
+		ans+="*";
+		base-=1;
+	    }
+	    ans+="\n";
+	    row+=1;
+	}
+	return ans;
+    }
+    public String tri3(int h){
+	String ans="";
+	int row=0;
+	while(row<h){
+	    int star=2*(row)+1;
+	    int space=h-row-1;
+	    while(space>0){
+		ans+=".";
+		space-=1;
+	    }
+	    while (star>0){
+		ans+="*";
+		star-=1;
+	    }
+	    ans+="\n";
+	    row+=1;
+	}
+	return ans;
+    }
 
 }
