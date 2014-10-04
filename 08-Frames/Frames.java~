@@ -1,0 +1,18 @@
+public class Frames {
+    public String Frame(int r, int c){
+	String ans = "";
+	String top="";
+	for (int x=0;x<c,x++){
+	    top+="*";
+	}
+	top+="\n";
+	for (int x=0;x<r-2;x++){
+	    ans+="*";
+	    for (int x=0;x<c-2;x++){
+		ans+=" ";
+	    }
+	    ans+="*\n";
+	}
+	return top+ans+top;
+    }
+}
