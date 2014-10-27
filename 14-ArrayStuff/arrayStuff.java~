@@ -1,0 +1,18 @@
+import java.util.*;
+
+public class arrayStuff {
+    public int[] randArray100(){
+	int[] ans = new int[100];
+	Random rand = new Random();
+	for (int i=0;i<100;i++){
+	    ans[i]=75+rand.nextInt(76);
+	}
+	return ans;
+    }
+
+    public arrayStuff() {
+	randArray100()
+	    }
+}
+
+    
