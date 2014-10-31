@@ -82,4 +82,42 @@ public class 14b{
 	}
 	return ans;
     }
+
+    public int maxMirror(int[] nums) {
+	int ans=0;
+	int[] rer = new int[nums.length];
+	int j=0;
+	for (int i=nums.length-1;i>=0;i--){
+	    rer[j] = nums[i];
+	    j+=1;
+	}
+	for (int i=0;i<nums.length;i++){
+	    for (int x=0;x<nums.length;x++){
+		if (nums[i] == rer[x]){
+		    int y=i;
+		    int z=x;
+		    int ans1=1;
+		    if (ans1>ans){
+			ans = ans1;
+		    }
+		    if (y+1 < nums.length && z+1<rer.length){
+			y=i+1;
+			z=x+1;}
+		    else{break;}
+		    while(nums[y]==rer[z]){
+			ans1+=1;
+			if (y+1 < nums.length && z+1<rer.length){
+			    y+=1;
+			    z+=1;
+			}
+			else {break;}
+		    }
+		    if (ans1>ans){
+			ans = ans1;
+		    }
+		}
+	    }
+	}
+	return ans;
+    }
 }
