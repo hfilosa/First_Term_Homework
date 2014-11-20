@@ -31,28 +31,33 @@ public class wordSearch{
     }
 
     public boolean check(int r,int c,char a){
-	if(r>board.length || c>board[r].length){
+	if(r>board.length-1 || r<0){
 	    return false;
 	}
-	return board[r][c] == '*'|| board[r][c]==a;
+	if(c>board[r].length-1 || c<0){
+	    return false;
+	}
+	return board[r][c] == '*' || board[r][c]==a;
     }
 
     public void add(String word){
 	Random r = new Random();
 	int xinc = 0;
 	int yinc = 0;
+	int startr = 0;
+	int startc = 0;
 	while (xinc==0 && yinc==0){
-	    int xinc = r.nextInt(3)-1;
-	    int yinc = r.nextInt(3)-1;
+	    xinc = r.nextInt(3)-1;
+	    yinc = r.nextInt(3)-1;
 	}
-	boolean test= false;
+	boolean test = false;
 	while(!test){
-	    int startr = r.nextInt(board.length);
-	    int startc = r.nextInt(board[0].length);
+	    startr = r.nextInt(board.length);
+	    startc = r.nextInt(board[startr].length);
 	    int tempr = startr;
 	    int tempc = startc;
 	    for (int i=0;i<word.length();i++){
-		test=check(tempr,tempc,word.getchar(i));
+		test=check(tempr,tempc,word.charAt(i));
 		if (!test){
 		    break;
 		}
@@ -61,18 +66,36 @@ public class wordSearch{
 	    }
 	}
 	for (int i=0;i<word.length();i++){
-	    board[startr+i*xinc][startc+i*yinc]=word.getchar(i);
+	    board[startr+i*xinc][startc+i*yinc]=word.charAt(i);
 	}
     }
 
+    public void addAll(){
+	for (int i=0;i<wordBank.length;i++){
+	    add(wordBank[i]);
+	}
+    }
 
-
-
+    public void fillGaps(){
+	Random rand = new Random();
+	for (int r=0;r<board.length;r++){
+	    for (int c=0;c<board[r].length;c++){
+		if (board[r][c] == '*'){
+		    board[r][c] = (char)(rand.nextInt(26)+'A');
+		}
+	    }
+	}
+    }
 
     public static void main(String[] args){
 	wordSearch w = new wordSearch();
+	System.out.println("Before adding the words");
 	System.out.println(w);
-	w.add("Horse");
+	w.addAll();
+	System.out.println("After adding the words:");
+	System.out.println(w);
+	w.fillGaps();
+	System.out.println("Finished puzzle with gaps filled by random characters");
 	System.out.println(w);
     }
 }
