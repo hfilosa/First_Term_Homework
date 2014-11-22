@@ -40,7 +40,7 @@ public class wordSearch{
 	return board[r][c] == '*' || board[r][c]==a;
     }
 
-    public void add(String word){
+    public boolean addWord(String word){
 	Random r = new Random();
 	int xinc = 0;
 	int yinc = 0;
@@ -51,7 +51,8 @@ public class wordSearch{
 	    yinc = r.nextInt(3)-1;
 	}
 	boolean test = false;
-	while(!test){
+	int tries = 1000;
+	while(!test && tries>0){
 	    startr = r.nextInt(board.length);
 	    startc = r.nextInt(board[startr].length);
 	    int tempr = startr;
@@ -64,15 +65,20 @@ public class wordSearch{
 		tempr += xinc;
 		tempc += yinc;
 	    }
+	    tries-=1;
+	}
+	if (tries == 0){
+	    return false;
 	}
 	for (int i=0;i<word.length();i++){
 	    board[startr+i*xinc][startc+i*yinc]=word.charAt(i);
 	}
+	return true;
     }
 
     public void addAll(){
 	for (int i=0;i<wordBank.length;i++){
-	    add(wordBank[i]);
+	    addWord(wordBank[i]);
 	}
     }
 
