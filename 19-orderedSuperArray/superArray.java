@@ -1,9 +1,11 @@
-public class stringSuperArray {
-    private String[] data;
+public class superArray <T> {
+    private T[] data;
     private int lastindex = -1;
 
-    public stringSuperArray(){
-	data = new String[10];
+    public superArray(){
+	@SuppressWarnings("unchecked")
+	Object[] temp = new Object[10];
+	data = (T[])temp;
     }
 
     //Displays contents of data. Stops at end of list, not end of data
@@ -17,7 +19,8 @@ public class stringSuperArray {
 
     //Copies items in data over to new list with one more memory slot
     public void expand(){
-	String[] ans = new String[data.length+1];
+	@SuppressWarnings("unchecked")
+	T[] ans = (T[])new Object[data.length+1];
 	for (int i=0;i<size();i++){
 	    ans[i]=data[i];
 	}
@@ -25,47 +28,43 @@ public class stringSuperArray {
     }
 
     //adds value to end of list
-    public boolean add(String word){
+    public boolean add(T value){
 	if (size()<data.length){
-	    for (int i=0; i<size();i++){
-		if (word.compareTo(data[i])>0){
-		    add(word,i);
-		}
-	    }
+	    data[lastindex+1]=value;
 	    lastindex+=1;
 	}
 	else {
 	    expand();
-	    data[data.length-1]=word;
+	    data[data.length-1]=value;
 	    lastindex+=1;
 	}
 	return true;
     }
 
     //adds value at specific index and shift rest down
-    public void add(String val,int index){
+    public void add(T value,int index){
 	if (size()<data.length){
 	    for(int i=lastindex;i>=index;i--){
 		data[i+1]=data[i];
 	    }
-	    data[index]=val;
+	    data[index]=value;
 	    lastindex+=1;
 	}
 	else{
 	    expand();
-	    add(val,index);
+	    add(value,index);
 	}
     }
 
     //retrieves value from specific index
-    public String get(int index){
+    public T get(int index){
 	return data[index];
     }
 
     //Set value at an index to specificed value
-    public String set(String val, int index){
-	String ans = data[index];
-	data[index]=val;
+    public T set(T value, int index){
+	T ans = data[index];
+	data[index]=value;
 	return ans;
     }
 
@@ -75,12 +74,12 @@ public class stringSuperArray {
     }
 
     //Remove value from index and shift values over
-    public String remove(int index){
-	String ans = data[index];
+    public T remove(int index){
+	T ans = data[index];
 	for (int i=index;i<lastindex;i++){
 	    data[i]=data[i+1];
 	}
-	data[lastindex]="";
+	data[lastindex]=null;
 	lastindex=lastindex-1;
 	return ans;
     }
