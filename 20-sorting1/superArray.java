@@ -1,4 +1,4 @@
-public class superArray <T extends Comparable<T>> {
+public class superArray <T> {
     private T[] data;
     private int lastindex = -1;
 
@@ -82,16 +82,5 @@ public class superArray <T extends Comparable<T>> {
 	data[lastindex]=null;
 	lastindex=lastindex-1;
 	return ans;
-    }
-
-    public void isort(){
-	for (int n=0;n<size();n++){
-	    int i;
-	    T newvalue = data[n];
-	    for (i = n; i > 0 && newvalue.compareTo(data[i-1])<0 ; i--) {
-		data[i] = data[i-1];    
-	    }
-	    data[i]=newvalue;
-	}
     }
 }

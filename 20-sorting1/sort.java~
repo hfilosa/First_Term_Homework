@@ -1,0 +1,16 @@
+public class sort extends superArray <Integer>{
+    public void isort(){
+	for (int n=0;n<data.length;n++){
+	    int i;
+	    T newvalue = data[n];
+	    for (i = n; i > 0 && newvalue.compareTo(data[i-1])<0 ; i--) {
+		data[i] = data[i-1];    
+	    }
+	    data[i]=newvalue;
+	}
+    }
+
+    public void ssort(){
+	for (int i=0;i<data.length;i++){}
+    }
+}
