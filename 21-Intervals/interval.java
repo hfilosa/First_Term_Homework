@@ -10,4 +10,13 @@ public class interval{
     public String toString(){
 	return "["+low+","+high+"]";
     }
+    public int getLow(){
+	return low;
+    }
+    public int getHigh(){
+	return high;
+    }
+    public int compareTo(interval other){
+	return this.getLow()-other.getLow();
+    }
 }
