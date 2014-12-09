@@ -1,0 +1,22 @@
+import java.util.Random;
+
+public class interval{
+    int[] data = new int[2];
+    public interval(){
+	Random rand = new Random();
+	boolean high = false;
+	int x = 0;
+	data[0]=rand.nextInt(100)-50;
+	while (!high){
+	    high = false;
+	    x =rand.nextInt(100)-49;
+	    if (x>data[0]){
+		high = true;
+		data[1]=x;
+	    }
+	}
+    }
+    public String toString(){
+	return "["+data[0]+","+data[1]+"]";
+    }
+}
