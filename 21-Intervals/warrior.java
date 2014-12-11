@@ -1,18 +1,18 @@
 import java.util.Random;
-<<<<<<< HEAD
 
 public class warrior extends basechar
 {
     Random Rand = new Random();
-    public  warrior()
+    public  warrior(String name)
     {
+	setName(name);
 	setStrength(90 + Rand.nextInt(20));
 	setHealth(140 + Rand.nextInt(20));
 	setSpeed(40 + Rand.nextInt(20));
     }
   
     public void attack(basechar other){
-	system.out.p
+    }
 
 
     /*  public int Bash()
@@ -44,27 +44,25 @@ public class warrior extends basechar
      When the opponent attacks, a similar thing happens. The defending variable is set to true, thus triggering the option of using your shield. 
      Maybe we should add more defense methods? The defense method then reduces the attack strength by a certain amount. I put it as strength/9 + random int from 0 to 20.
      Finally, the damage is given 
-    */
+    
     public void block(basechar other)
     {
 	System.out.println(this.getName() + " BLOCKS " + other.getName() + "'s attack");
 	other.lowerAttackStrength(this.getStrength()/9 + randomNumber.nextInt(20));
 	if (other.getAttackStrength() < 15)
->>>>>>> f2f2712443505c10d5f03b9dff3718099148bdac
+
 	    {
 		System.out.println(this.getName() + "'s block was super effective!");
 	    }
 	if (other.getAttackStrength() > 25)
 	    {
-		System.out.println (this.getName() + "'s block didn't work very well....");
+		System.out.println(this.getName() + "'s block didn't work very well....");
 	    }
-<<<<<<< HEAD
+
     
-	    } */
-=======
+	    } 
 	other.assignDamage(this);
 	
-    }
->>>>>>> f2f2712443505c10d5f03b9dff3718099148bdac
+	}*/
 }
 
