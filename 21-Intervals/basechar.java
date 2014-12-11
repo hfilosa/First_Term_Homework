@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public abstract class basechar implements Comparable {
     private int health;
     private int strength;
@@ -95,8 +96,12 @@ public abstract class basechar implements Comparable {
 	} catch (Exception e) {}
     }
     public static void main(String[] args){
-	warrior a = new warrior("Adam");
-	warrior b = new warrior("Bob");
-	System.out.println(a.compareTo(b));
+	warrior[] data = new warrior[3];
+	data[1] = new warrior("Adam");
+	data[2] = new warrior("Bob");
+	data[0] = new warrior("Liam");
+	System.out.println(Arrays.toString(data));
+	Arrays.sort(data);
+	System.out.println(Arrays.toString(data));
     }
 }
