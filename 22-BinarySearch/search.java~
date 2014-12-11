@@ -1,0 +1,10 @@
+public class search{
+    public lsearch(Comparable[] a,Comparable val){
+	for (int i=0;i<a.length;i++){
+	    if (a[i].compareTo(val)==0){
+		return i;
+	    }
+	}
+	return -1;
+    }
+    public bsearch(Comparable[] a,Comparable val;
