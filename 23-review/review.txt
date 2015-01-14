@@ -1,0 +1,19 @@
+The repository being reviewed: https://github.com/tli123/APCSFinalProject
+
+I will be reviewing the basechar and battle classes which total ~400 lines of code
+
+Basechar class (Notes given per line)-
+48- How exactly is the chance value inputed? Can it be negative by mistake? 
+116- What is the purpose of this method. I don't see it referenced elsewhere.
+267- Why do you use a boolean check if you have a chance method at line 116?
+266- It would be more efficient to just have one Random class for the whole file instead of instantiating one repeatadly.
+271- This seems confusingly named. Why not just call it heal?
+
+Battle Class -
+13- You have no system to safeguard user input. If a user enters something like "sda" two battle phases will take place before they can do anything. Is that intentional?
+18- It seems that an attack takes place irregardless of user input. Is this intentional?
+48- This doesn't do anything. Neither does 64. Maybe you should focus on less attacks, or a more refined system for interpretaing user input.
+68- Double negatives are confusing. Why not just check for death instead of not death?
+82- This comment doesn't make sense.
+
+Summary: I couldn't find many glaring errors with your code. The main issue I have is that it is extremely disorganized wich I believe would make bug testing and integration difficult. Having a class file for every seperate player & monster type is inefficient when each file is only 1 line of code. I would conbine those into one file that extends basechar. Or maybe even just put them all into basechar. It would make finding bugs easier. Aswell if you decide to add a new player variable it would be easier to change the contructors if they were in one place. Another productivity issue is having now version system. Ideally, you should have a new folder for every day you do work. This makes it easier to view changes and allows you to revert in the case of some catastrophic failure.
